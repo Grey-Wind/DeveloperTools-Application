@@ -2,7 +2,7 @@
   "name": "developertools-application",
   "version": "1.0.0",
   "description": "The application of Developer Tools",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "run": "electron .",
     "build": "electron-builder"
