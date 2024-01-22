@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CefSharp.Wpf;
+using CefSharp;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System;
 
 namespace DeveloperTools
 {
@@ -23,6 +13,25 @@ namespace DeveloperTools
         public MainWindow()
         {
             InitializeComponent();
+
+            // 初始化CefSharp
+            CefFunc.Initialize(browser);
+        }
+
+        private void OnlineBtnClick(object sender, RoutedEventArgs e)
+        {
+            CefFunc.LoadUrl("https://developer-tools.qingyi-studio.top/",browser);
+        }
+
+        private void OfflineBtnClick(object sender, RoutedEventArgs e)
+        {
+            Server.Start();
+        }
+
+        private void MainWindow_Closed(object sender, EventArgs e)
+        {
+            CefFunc.Shutdown();
+            Application.Current.Shutdown();
         }
     }
 }
